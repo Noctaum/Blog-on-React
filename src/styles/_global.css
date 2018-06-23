@@ -1,0 +1,7 @@
+button {
+	border: 1px solid $darkBlue;
+	border-radius: 2px;
+	color: white;
+	outline: 0;
+	cursor: pointer;
+}

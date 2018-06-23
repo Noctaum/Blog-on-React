@@ -1,0 +1,31 @@
+.blogInput{
+	max-width: 300px;
+	padding: 10px;
+	border: 2px solid $darkBlue;
+	margin: 10px auto;
+	text-align: center;
+
+	label{
+		display: block;
+		text-align: left;
+		padding: 10px 0px;
+	}
+
+	input,
+	textarea{
+		width: 100%;
+		outline: none;
+	}
+
+	textarea{
+		resize: vertical;
+	}
+
+}
+
+.submitBtn{
+	margin-top: 10px;
+	width: 90px;
+	height: 30px;
+	background-color: $greenBtn;
+}
