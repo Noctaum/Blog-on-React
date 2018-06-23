@@ -9,6 +9,7 @@ export default class BlogsList extends Component {
 			posts:[],
 		}
 		this.deletePost = this.deletePost.bind(this);
+		this.changeLikes = this.changeLikes.bind(this);
 	}
 
 	async deletePost(id){
@@ -19,6 +20,10 @@ export default class BlogsList extends Component {
 			let posts = newPostsList.filter((item)=>(item._id !== id)); 
 			this.setState({posts});
 		}
+	}
+
+	async changeLikes(post){
+		await api.updatePost(post);
 	}
 
 	componentWillMount(){
@@ -32,7 +37,12 @@ export default class BlogsList extends Component {
 
 	render() {
 		const BlogsListRender = this.state.posts.map((post, index)=>(
-			<BlogTemplate key={post._id} blog={post} deletePost={this.deletePost} />
+			<BlogTemplate 
+				key={post._id} 
+				blog={post} 
+				deletePost={this.deletePost} 
+				changeLikes={this.changeLikes}
+			/>
 		));
 		return (
 			<div className="blogsList">

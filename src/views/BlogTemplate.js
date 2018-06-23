@@ -3,22 +3,40 @@ import {Link} from 'react-router-dom';
 
 export default class BlogTemplate extends Component {
 	static defaultPost = {
-		deletePost(){}	
+		deletePost(){},
+		changeLikes(){}	
 	};
 
 	constructor(props){
 		super(props);
+		this.state = {
+			likes: this.props.blog.likes,
+		}
 	
 		this.deletePost = this.deletePost.bind(this);
+		this.changeLikes = this.changeLikes.bind(this);
 	}
 
 	deletePost(){
 		this.props.deletePost(this.props.blog._id);
 	}
 
+	changeLikes(e){
+		let likes = this.state.likes;
+		let post = this.props.blog;
+		if(e.target.checked){
+			likes++;
+			post.likes++;
+		} else {
+			likes--;
+			post.likes--;
+		}
+		this.setState({likes:likes});
+		this.props.changeLikes(post);
+	}
+
 	render(){
 		const {blog} = this.props;
-
 		return (
 			<div className="blogTemplate">
 				<div className="topBlogContainer">
@@ -34,8 +52,10 @@ export default class BlogTemplate extends Component {
 						<div>Author: {blog.author}</div>
 						<div className="likeBox">
 							<label>
-								Likes {blog.likes} 
-								<input type="checkbox"/>
+								Likes {this.state.likes} 
+								<input type="checkbox"
+									onChange={this.changeLikes}
+								/>
 							</label>
 						</div>
 					</div>
