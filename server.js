@@ -51,11 +51,13 @@ let metods = {
 		});
 	},
 	delBlog: function(req, res){
-		Blog.findByIdAndRemove(req.body._id, function(err){
+		console.log(req.params.id);
+		Blog.findByIdAndRemove(req.params.id, function(err){
 			if(err){
 				console.log("ERROR!");
+				res.send(err);
 			} else{
-				res.json({});
+				res.json({answ:true});
 			}
 		});
 	},

@@ -2,6 +2,20 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 export default class BlogTemplate extends Component {
+	static defaultPost = {
+		deletePost(){}	
+	};
+
+	constructor(props){
+		super(props);
+	
+		this.deletePost = this.deletePost.bind(this);
+	}
+
+	deletePost(){
+		this.props.deletePost(this.props.blog._id);
+	}
+
 	render(){
 		const {blog} = this.props;
 
@@ -28,9 +42,9 @@ export default class BlogTemplate extends Component {
 					<Link className='editBtn' to={`/editPost/${blog._id}`}>
                         Edit
                     </Link>
-                    <Link className='delBtn' to="/">
+                    <button className='delBtn' onClick={this.deletePost}>
                         Delete
-                    </Link>
+                    </button>
 				</div>
 			</div>
 		);
