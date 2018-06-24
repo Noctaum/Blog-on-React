@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
-import * as api from './api';
+import * as apiBlog from './apiBlog';
 
 class BlogInput extends Component {
 	
@@ -28,7 +28,7 @@ class BlogInput extends Component {
   	}
 
   	async loadPost(id){
-    	let post = await api.getPost(id);
+    	let post = await apiBlog.getPost(id);
     	this.setState(post);
   	}
 
@@ -37,14 +37,14 @@ class BlogInput extends Component {
 	}
 
 	async addPost(){
-		let resp = await api.createPost(this.state);
+		let resp = await apiBlog.createPost(this.state);
 		if(resp.answ){
 			this.props.history.push('/');
 		}
 	}
 
 	async editPost(){
-		let resp = await api.updatePost(this.state);
+		let resp = await apiBlog.updatePost(this.state);
 		if(resp.answ){
 			this.props.history.push('/');
 		}

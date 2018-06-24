@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
-import * as api from './api';
+import * as apiBlog from './apiBlog';
 import * as apiComment from './apiComment';
 import Comment from './Comment';
 
@@ -18,7 +18,6 @@ class BlogInput extends Component {
 		};
 
 		this.handleChange = this.handleChange.bind(this);
-		// this.addPost = this.addPost.bind(this);
 		this.addComment = this.addComment.bind(this);
 		this.changeLikes = this.changeLikes.bind(this);
 	}
@@ -30,7 +29,7 @@ class BlogInput extends Component {
   	}
 
   	async loadPost(id){
-    	let post = await api.getPost(id);
+    	let post = await apiBlog.getPost(id);
     	this.setState({post});
   	}
 
@@ -42,7 +41,7 @@ class BlogInput extends Component {
 			post.likes--;
 		}
 		this.setState({post});
-		await api.updatePost(post);
+		await apiBlog.updatePost(post);
 	}
 
 	handleChange(e) {

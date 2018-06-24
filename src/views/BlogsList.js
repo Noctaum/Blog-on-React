@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import BlogTemplate from './BlogTemplate';
 import SearchPosts from './SearchPosts';
-import * as api from './api';
+import * as apiBlog from './apiBlog';
 
 export default class BlogsList extends Component {
 	
@@ -25,7 +25,7 @@ export default class BlogsList extends Component {
 	}
 
 	async deletePost(id){
-		let posts = await api.removePost(id);
+		let posts = await apiBlog.removePost(id);
 		console.log(posts);
 		if (posts.answ){
 			let newPostsList = this.state.posts;
@@ -35,12 +35,12 @@ export default class BlogsList extends Component {
 	}
 
 	async loadPosts(){
-		let posts = await api.getPosts();
+		let posts = await apiBlog.getPosts();
 		this.setState({posts:posts, allPosts:posts});
 	}
 
 	async changeLikes(post){
-		await api.updatePost(post);
+		await apiBlog.updatePost(post);
 	}
 
 	render() {
