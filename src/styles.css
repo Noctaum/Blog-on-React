@@ -10,6 +10,42 @@ button {
 	cursor: pointer;
 }
 
+.Btn {
+	border: 1px solid rgb(44, 62, 80);
+	border-radius: 2px;
+	color: white;
+	outline: 0;
+	cursor: pointer;
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.delBtn {
+	background-color: rgba(201, 40, 40, 0.7);
+	padding: 5px 10px;
+}
+
+.editBtn {
+	background-color: rgba(40, 94, 18, 0.7);
+	padding: 5px 15px;
+}
+
+.infoBtn {
+	float: right;
+	background-color: rgba(22, 83, 128, 0.8);
+	margin-right: 0px;
+	padding: 5px;
+}
+
+@media (max-width: 703px){
+
+.infoBtn {
+		margin-top: 5px;
+		float: left
+}
+	}
+
 header {
   	background-color: rgb(44, 62, 80);
   	display: flex;
@@ -89,42 +125,6 @@ header nav li {
 	padding-bottom: 5px;
 	text-align: right;		
 }
-
-.postBtn {
-	border: 1px solid rgb(44, 62, 80);
-	border-radius: 2px;
-	color: white;
-	outline: 0;
-	cursor: pointer;
-	margin-right: 10px;
-	text-decoration: none;
-	font-size: 12px;
-}
-
-.delBtn {
-	background-color: rgba(201, 40, 40, 0.7);
-	padding: 5px 10px;
-}
-
-.editBtn {
-	background-color: rgba(40, 94, 18, 0.7);
-	padding: 5px 15px;
-}
-
-.infoBtn {
-	float: right;
-	background-color: rgba(22, 83, 128, 0.8);
-	margin-right: 0px;
-	padding: 5px;
-}
-
-@media (max-width: 703px){
-
-.infoBtn {
-		margin-top: 5px;
-		float: left
-}
-	}
 
 .blogInput{
 	max-width: 300px;
@@ -229,7 +229,7 @@ header nav li {
 	}
 
 .blogInfo_comment textarea{
-
+			border: 1px solid rgb(44, 62, 80);
 			width: 100%;
 			resize: vertical;
 		}

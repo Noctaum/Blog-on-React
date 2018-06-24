@@ -59,13 +59,13 @@ export default class BlogTemplate extends Component {
 							</label>
 						</div>
 					</div>
-					<Link className='postBtn editBtn' to={`/editPost/${blog._id}`}>
+					<Link className='Btn editBtn' to={`/editPost/${blog._id}`}>
                         Edit
                     </Link>
-                    <button className='postBtn delBtn' onClick={this.deletePost}>
+                    <button className='Btn delBtn' onClick={this.deletePost}>
                         Delete
                     </button>
-                    <Link className='postBtn infoBtn' to={`/post/${blog._id}`}>
+                    <Link className='Btn infoBtn' to={`/post/${blog._id}`}>
                         More info
                     </Link>
 				</div>

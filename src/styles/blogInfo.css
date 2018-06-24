@@ -31,7 +31,7 @@
 		resize: vertical;
 
 		textarea{
-
+			border: 1px solid $darkBlue;
 			width: 100%;
 			resize: vertical;
 		}

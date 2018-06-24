@@ -20,6 +20,7 @@ class BlogInput extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.addComment = this.addComment.bind(this);
 		this.changeLikes = this.changeLikes.bind(this);
+		this.deleteComment = this.deleteComment.bind(this);
 	}
 
 	componentWillMount(){
@@ -54,7 +55,19 @@ class BlogInput extends Component {
 			let post = this.state.post;
 			let comment = this.state.newComment;
 			post.comments.unshift(comment);
+			this.setState({newComment:""});
 			this.loadPost(this.props.id);
+		}
+	}
+
+	async deleteComment(id){
+		let postId = this.state.post._id;
+		let comment = await apiComment.removeComment(id, postId);
+		if (comment.answ){
+			let post = this.state.post;
+			let postNew = post.comments.filter((item)=>(item !== id)); 
+			post.comments = postNew;
+			this.setState({post:post});
 		}
 	}
 
@@ -65,7 +78,8 @@ class BlogInput extends Component {
 			BlogsListRender = post.comments.map((commentId, index)=>(
 				<Comment 
 					key={commentId} 
-					commentId={commentId} 
+					commentId={commentId}
+					deleteComment={this.deleteComment} 
 				/>
 			));
 		} else {

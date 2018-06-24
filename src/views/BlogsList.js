@@ -26,7 +26,6 @@ export default class BlogsList extends Component {
 
 	async deletePost(id){
 		let posts = await apiBlog.removePost(id);
-		console.log(posts);
 		if (posts.answ){
 			let newPostsList = this.state.posts;
 			let posts = newPostsList.filter((item)=>(item._id !== id)); 
