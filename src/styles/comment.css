@@ -1,0 +1,6 @@
+.comment{
+	padding: 5px 10px;
+	margin-top: 10px;
+	border: 2px solid $darkBlue;
+	border-radius: 5px;
+}

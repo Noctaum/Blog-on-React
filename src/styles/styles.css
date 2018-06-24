@@ -5,3 +5,5 @@
 @import "blogTemplate";
 @import "blogInput";
 @import "searchPosts";
+@import "blogInfo";
+@import "comment";

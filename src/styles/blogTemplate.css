@@ -15,11 +15,21 @@
 	.topBlogContainer{
 		p{
 			padding: 10px;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 25px;
 		}
 	}
 
 	.bottomBlogContainer{
-		padding: 5px 5px 10px;
+		padding: 5px 10px 10px;
+	}
+
+	.bottomBlogContainer::after {
+		content: "";
+		clear: both;
+		display: table;
 	}
 
 }
@@ -36,12 +46,12 @@
 }
 
 .likeBox {
+	padding-bottom: 5px;
 	text-align: right;		
 }
 
 
-.delBtn,
-.editBtn {
+.postBtn {
 	border: 1px solid $darkBlue;
 	border-radius: 2px;
 	color: white;
@@ -60,4 +70,16 @@
 .editBtn {
 	background-color: $greenBtn;
 	padding: 5px 15px;
+}
+
+.infoBtn {
+	float: right;
+	background-color: $blueBtn;
+	margin-right: 0px;
+	padding: 5px;
+
+	@media (max-width: 703px){
+		margin-top: 5px;
+		float: left;
+	}
 }

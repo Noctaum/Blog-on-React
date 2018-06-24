@@ -58,10 +58,20 @@ header nav li {
 
 .blogTemplate .topBlogContainer p{
 			padding: 10px;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 25px;
 		}
 
 .blogTemplate .bottomBlogContainer{
-		padding: 5px 5px 10px;
+		padding: 5px 10px 10px;
+	}
+
+.blogTemplate .bottomBlogContainer::after {
+		content: "";
+		clear: both;
+		display: table;
 	}
 
 .imageContainer{
@@ -76,11 +86,11 @@ header nav li {
 	}
 
 .likeBox {
+	padding-bottom: 5px;
 	text-align: right;		
 }
 
-.delBtn,
-.editBtn {
+.postBtn {
 	border: 1px solid rgb(44, 62, 80);
 	border-radius: 2px;
 	color: white;
@@ -101,13 +111,27 @@ header nav li {
 	padding: 5px 15px;
 }
 
+.infoBtn {
+	float: right;
+	background-color: rgba(22, 83, 128, 0.8);
+	margin-right: 0px;
+	padding: 5px;
+}
+
+@media (max-width: 703px){
+
+.infoBtn {
+		margin-top: 5px;
+		float: left
+}
+	}
+
 .blogInput{
 	max-width: 300px;
 	padding: 10px 14px 10px 10px;
 	border: 2px solid rgb(44, 62, 80);
 	margin: 10px auto;
 	text-align: center;
-
 }
 
 .blogInput label{
@@ -122,9 +146,6 @@ header nav li {
 		padding: 5px 0px 5px 5px;
 		outline: none;
 		border: 1px solid rgb(44, 62, 80);
-	}
-
-.blogInput textarea{
 		resize: vertical;
 	}
 
@@ -176,3 +197,46 @@ header nav li {
 		display: inline-block;
 		height: 30px;
 	}
+
+.blogInfo{
+
+	max-width: 800px;
+	margin: 10px auto;
+	padding: 10px;
+	box-shadow: 1px 2px 7px rgb(44, 62, 80);
+}
+
+.blogInfo_topBlogContainer h2{
+			text-align: center;
+			text-decoration: underline;
+		}
+
+.blogInfo_imageContainer{
+		overflow: hidden;
+
+	}
+
+.blogInfo_imageContainer img {
+			width: 100%;
+		}
+
+.blogInfo_likeBox{
+		text-align: right;		
+	}
+
+.blogInfo_comment{
+		resize: vertical;
+	}
+
+.blogInfo_comment textarea{
+
+			width: 100%;
+			resize: vertical;
+		}
+
+.comment{
+	padding: 5px 10px;
+	margin-top: 10px;
+	border: 2px solid rgb(44, 62, 80);
+	border-radius: 5px;
+}
