@@ -1,0 +1,38 @@
+$yellowColor: rgb(134, 145, 29);
+
+.searchPosts{
+	background-color: $darkBlue;
+	border-top: 3px solid $yellowColor;
+	padding: 10px 10px 0px;
+	color: white;
+
+	button{
+		color: $yellowColor;
+		padding: 3px 5px;
+	}
+
+	label{
+		margin: 0px 8px;
+	}
+
+	input[type="text"],
+	input[type="date"]{
+		margin-left: 10px;
+		outline: none;
+
+		@media (max-width: 330px){
+			height: 12px;
+			padding: 0px 3px;
+		}
+	}
+	input[type="text"]:focus,
+	input[type="date"]:focus{
+		box-shadow: 0px 0px 15px $yellowColor;
+	}
+
+	div{
+		display: inline-block;
+		height: 30px;
+	}
+
+}

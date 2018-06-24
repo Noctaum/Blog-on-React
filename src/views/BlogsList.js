@@ -1,15 +1,27 @@
 import React, {Component} from 'react';
 import BlogTemplate from './BlogTemplate';
+import SearchPosts from './SearchPosts';
 import * as api from './api';
 
 export default class BlogsList extends Component {
+	
 	constructor(props){
 		super(props);
 		this.state = {
 			posts:[],
+			allPosts:[],
 		}
 		this.deletePost = this.deletePost.bind(this);
 		this.changeLikes = this.changeLikes.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
+	}
+
+	componentWillMount(){
+		this.loadPosts();
+	}
+
+	handleSearch(posts){
+		this.setState({posts});
 	}
 
 	async deletePost(id){
@@ -18,25 +30,22 @@ export default class BlogsList extends Component {
 		if (posts.answ){
 			let newPostsList = this.state.posts;
 			let posts = newPostsList.filter((item)=>(item._id !== id)); 
-			this.setState({posts});
+			this.setState({posts:posts, allPosts:posts});
 		}
+	}
+
+	async loadPosts(){
+		let posts = await api.getPosts();
+		this.setState({posts:posts, allPosts:posts});
 	}
 
 	async changeLikes(post){
 		await api.updatePost(post);
 	}
 
-	componentWillMount(){
-		this.loadPosts();
-	}
-
-	async loadPosts(){
-		let posts = await api.getPosts();
-		this.setState({posts});
-	}
-
 	render() {
-		const BlogsListRender = this.state.posts.map((post, index)=>(
+		const {posts} = this.state;
+		const BlogsListRender = posts.map((post, index)=>(
 			<BlogTemplate 
 				key={post._id} 
 				blog={post} 
@@ -45,8 +54,14 @@ export default class BlogsList extends Component {
 			/>
 		));
 		return (
-			<div className="blogsList">
-				{BlogsListRender}
+			<div>
+				<SearchPosts 
+					posts={this.state.allPosts}
+					handleSearch={this.handleSearch}
+				/>
+				<section className="blogsList">
+					{BlogsListRender}
+				</section>
 			</div>
 		);
 	}

@@ -38,7 +38,7 @@ export default class BlogTemplate extends Component {
 	render(){
 		const {blog} = this.props;
 		return (
-			<div className="blogTemplate">
+			<article className="blogTemplate">
 				<div className="topBlogContainer">
 					<h3>{blog.title}</h3>
 					<div className="imageContainer">
@@ -66,7 +66,7 @@ export default class BlogTemplate extends Component {
                         Delete
                     </button>
 				</div>
-			</div>
+			</article>
 		);
 	}
 }
